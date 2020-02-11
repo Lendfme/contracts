@@ -1,3 +1,16 @@
+/*
+========================================================================
+!!!!!!!!!!!!!!
+!!! NOTICE !!!
+!!!!!!!!!!!!!!
+This is a test contract very similar to the formal contract.
+The only difference between this contract and the formal contract is
+that there is an additional function named allocateTo() to get token free.
+The actual code on the mainnet is at here:
+    https://etherscan.io/address/0x8E870D67F660D95d5be530380D0eC0bd388289E1#code
+========================================================================
+*/
+
 pragma solidity ^0.4.24;
 
 // File: contracts/zeppelin/Proxy.sol

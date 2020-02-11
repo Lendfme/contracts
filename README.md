@@ -56,7 +56,7 @@
 </table>
 
 
-## Mainnet Test Contract Address(2019-12-25)
+## Mainnet Test Contract Address(2020-02-11)
 
 <table>
 	<tr>
@@ -86,6 +86,30 @@
 	<tr>
 		<td> imBTCRateModel </td>
 		<td> 0x0ae2612845C3dDcc49f6d4F4F728f9de503AAbBf </td>
+	</tr>
+	<tr>
+		<td> PAX </td>
+		<td> 0x6CDd244AFFf8902cE285F02C39A2623Ecb461454 </td>
+	</tr>
+	<tr>
+		<td> PAXRateModel </td>
+		<td> 0x622B859cf4f1013642F6c177bA713d482fF5b483 </td>
+	</tr>
+	<tr>
+		<td> TUSD </td>
+		<td> 0xfd062D0EBC900EF504435DCe9347797d3b5e12Aa </td>
+	</tr>
+	<tr>
+		<td> TUSDRateModel </td>
+		<td> 0x622B859cf4f1013642F6c177bA713d482fF5b483 </td>
+	</tr>
+	<tr>
+		<td> USDC </td>
+		<td> 0x2cd68eCF48B0687c95EE6C06D33389688C3cbb8e </td>
+	</tr>
+	<tr>
+		<td> USDCRateModel </td>
+		<td> 0x622B859cf4f1013642F6c177bA713d482fF5b483 </td>
 	</tr>
 	<tr>
 		<td> USDx </td>

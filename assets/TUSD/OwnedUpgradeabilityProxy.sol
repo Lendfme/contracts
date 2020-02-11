@@ -1,3 +1,16 @@
+/*
+========================================================================
+!!!!!!!!!!!!!!
+!!! NOTICE !!!
+!!!!!!!!!!!!!!
+This is a test contract very similar to the formal contract.
+The only difference between this contract and the formal contract is
+that there is an additional function named allocateTo() to get token free.
+The actual code on the mainnet is at here:
+    https://etherscan.io/address/0x0000000000085d4780B73119b644AE5ecd22b376#code
+========================================================================
+*/
+
 pragma solidity ^0.4.23;
 
 // This is the proxy contract for the TrustToken Registry
