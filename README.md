@@ -69,7 +69,7 @@
 	</tr>
 	<tr>
 		<td> Liquidator </td>
-		<td> 0x74E2Caa1AAc64e5E9A20ffcd8577187cC67d60E4 </td>
+		<td> 0xa116F88A1FF715206923f909585FEa35F52d540a </td>
 	</tr>
 	<tr>
 		<td> HBTC </td>
@@ -77,7 +77,7 @@
 	</tr>
 	<tr>
 		<td> HBTCRateModel </td>
-		<td> 0x7f8b859EEd21dc45d08cf5275e498dEB8A584f6e </td>
+		<td> 0xA4e7D12909FaD9cFc620c34cFA1b9DCC31f3BF43 </td>
 	</tr>
     <tr>
 		<td> imBTC </td>
@@ -85,7 +85,7 @@
 	</tr>
 	<tr>
 		<td> imBTCRateModel </td>
-		<td> 0x7f8b859EEd21dc45d08cf5275e498dEB8A584f6e </td>
+		<td> 0x0ae2612845C3dDcc49f6d4F4F728f9de503AAbBf </td>
 	</tr>
 	<tr>
 		<td> USDx </td>
@@ -93,7 +93,7 @@
 	</tr>
 	<tr>
 		<td> USDxRateModel </td>
-		<td> 0x40B0F9e6EABb0381d5A4e88DD6A2bc2CE504E821 </td>
+		<td> 0xa79B3ea1729Bf43Be12A7C89BDffd1306dBFe647 </td>
 	</tr>
 	<tr>
 		<td> USDT </td>
@@ -101,7 +101,7 @@
 	</tr>
 	<tr>
 		<td> USDTRateModel </td>
-		<td> 0xc6A9B599bf5F18670B97B2701953D90217481c01 </td>
+		<td> 0x5921aD8bC04aa45fc23C9771c559FFbf4D2AfD2f </td>
 	</tr>
 	<tr>
 		<td> WETH </td>
@@ -109,7 +109,7 @@
 	</tr>
 	<tr>
 		<td> WETHRateModel </td>
-		<td> 0x7f8b859EEd21dc45d08cf5275e498dEB8A584f6e </td>
+		<td> 0xA4e7D12909FaD9cFc620c34cFA1b9DCC31f3BF43 </td>
 	</tr>
 	<tr>
 		<td> PriceOracle </td>
