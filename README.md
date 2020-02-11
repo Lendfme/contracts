@@ -71,6 +71,14 @@
 		<td> Liquidator </td>
 		<td> 0x74E2Caa1AAc64e5E9A20ffcd8577187cC67d60E4 </td>
 	</tr>
+	<tr>
+		<td> HBTC </td>
+		<td> 0xa2C7088b08833a00dB49A0d564b5e1463A4B49cB </td>
+	</tr>
+	<tr>
+		<td> HBTCRateModel </td>
+		<td> 0x7f8b859EEd21dc45d08cf5275e498dEB8A584f6e </td>
+	</tr>
     <tr>
 		<td> imBTC </td>
 		<td> 0x1141687E2a906722254e77241019c57496c0e83e </td>
@@ -114,6 +122,7 @@
 </table>
 
 
+
 ## Rinkeby Contract Address(2020-02-06)
 
 <table>
@@ -130,12 +139,44 @@
 		<td> 0x3D01AA8879E1DCe78574090fEE75aDAfAB690a23 </td>
 	</tr>
 	<tr>
+		<td> HBTC </td>
+		<td> 0xcf07906CbCF9824D0caE475E8F958d48AcF1014C </td>
+	</tr>
+	<tr>
+		<td> HBTCRateModel </td>
+		<td> 0x0Ecc207Eb5E1d9476543D7e32D61A75e6bf767d3 </td>
+	</tr>
+	<tr>
 		<td> imBTC </td>
 		<td> 0x5Dc95A046020880b93F15902540Dbfe86489FddA </td>
 	</tr>
 	<tr>
 		<td> imBTCRateModel </td>
 		<td> 0xe7cF47e58829Dc4eD4FDB9638eC309A00a96D13a </td>
+	</tr>
+	<tr>
+		<td> PAX </td>
+		<td> 0x722E6238335d89393A42e2cA316A5fb1b8B2EB55 </td>
+	</tr>
+	<tr>
+		<td> PAXRateModel </td>
+		<td> 0xe302E676E1Add419cc87e75fb5B73DAB24Ad1534 </td>
+	</tr>
+	<tr>
+		<td> TUSD </td>
+		<td> 0xe72a3181f69Eb21A19bd4Ce19Eb68FDb333d74c6 </td>
+	</tr>
+	<tr>
+		<td> TUSDRateModel </td>
+		<td> 0xe302E676E1Add419cc87e75fb5B73DAB24Ad1534 </td>
+	</tr>
+	<tr>
+		<td> USDC </td>
+		<td> 0x84e96bb630a711d66789AcaBc237c087D8B371D3 </td>
+	</tr>
+	<tr>
+		<td> USDCRateModel </td>
+		<td> 0xe302E676E1Add419cc87e75fb5B73DAB24Ad1534 </td>
 	</tr>
 	<tr>
 		<td> USDT </td>
