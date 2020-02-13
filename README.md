@@ -11,7 +11,7 @@
 	</tr>
 	<tr>
 		<td> Liquidator </td>
-		<td> 0x932906251479106d96904184aa4985c1a291b35d </td>
+		<td> 0x9893292300c4e530a14FB2526271732a2a9b3f05 </td>
 	</tr>
     <tr>
 		<td> imBTC </td>
