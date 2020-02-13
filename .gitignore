@@ -1,0 +1,28 @@
+
+# Coverage directory
+coverage
+coverage.json
+coverageEnv
+
+# Dependency directory
+node_modules
+
+# Debug log from npm
+npm-debug.log
+
+# Local env variables
+.env
+
+# Truffle build directory
+build/
+
+# misc
+.DS_Store
+*/.DS_Store
+.env
+.idea/
+.vscode/
+
+# Logs
+logs
+*.log
