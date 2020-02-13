@@ -19,7 +19,7 @@
 	</tr>
 	<tr>
 		<td> imBTCRateModel </td>
-		<td> 0x50add3a22eea443e938a0c602eacc17a12ce6483 </td>
+		<td> 0x9a18c4D9587344f2B15686Aa67EE7e5C4B00D549 </td>
 	</tr>
 	<tr>
 		<td> USDx </td>
@@ -27,7 +27,7 @@
 	</tr>
 	<tr>
 		<td> USDxRateModel </td>
-		<td> 0x2253d16773a8586825ec54a535ec936ab53e0c51 </td>
+		<td> 0x83D5f6dc9d9750A137a744333C55b4Adf5F9A234 </td>
 	</tr>
 	<tr>
 		<td> USDT </td>
@@ -35,7 +35,7 @@
 	</tr>
 	<tr>
 		<td> USDTRateModel </td>
-		<td> 0x760f44e0d2e45eaa10d6a2f149dccffdde664ef9 </td>
+		<td> 0x83D5f6dc9d9750A137a744333C55b4Adf5F9A234 </td>
 	</tr>
 	<tr>
 		<td> WETH </td>
@@ -43,7 +43,7 @@
 	</tr>
 	<tr>
 		<td> WETHRateModel </td>
-		<td> 0x50add3a22eea443e938a0c602eacc17a12ce6483 </td>
+		<td> 0x5Dc95A046020880b93F15902540Dbfe86489FddA </td>
 	</tr>
 	<tr>
 		<td> PriceOracle </td>
@@ -93,7 +93,7 @@
 	</tr>
 	<tr>
 		<td> PAXRateModel </td>
-		<td> 0x622B859cf4f1013642F6c177bA713d482fF5b483 </td>
+		<td> 0x5921aD8bC04aa45fc23C9771c559FFbf4D2AfD2f </td>
 	</tr>
 	<tr>
 		<td> TUSD </td>
@@ -101,7 +101,7 @@
 	</tr>
 	<tr>
 		<td> TUSDRateModel </td>
-		<td> 0x622B859cf4f1013642F6c177bA713d482fF5b483 </td>
+		<td> 0x5921aD8bC04aa45fc23C9771c559FFbf4D2AfD2f </td>
 	</tr>
 	<tr>
 		<td> USDC </td>
@@ -109,7 +109,7 @@
 	</tr>
 	<tr>
 		<td> USDCRateModel </td>
-		<td> 0x622B859cf4f1013642F6c177bA713d482fF5b483 </td>
+		<td> 0x5921aD8bC04aa45fc23C9771c559FFbf4D2AfD2f </td>
 	</tr>
 	<tr>
 		<td> USDx </td>
@@ -160,7 +160,7 @@
 	</tr>
 	<tr>
 		<td> Liquidator </td>
-		<td> 0x3D01AA8879E1DCe78574090fEE75aDAfAB690a23 </td>
+		<td> 0x84E81B87D1736D2E2Be5dB591326E29F8458c63C </td>
 	</tr>
 	<tr>
 		<td> HBTC </td>
