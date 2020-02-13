@@ -160,7 +160,7 @@
 	</tr>
 	<tr>
 		<td> Liquidator </td>
-		<td> 0x3D01AA8879E1DCe78574090fEE75aDAfAB690a23 </td>
+		<td> 0x84E81B87D1736D2E2Be5dB591326E29F8458c63C </td>
 	</tr>
 	<tr>
 		<td> HBTC </td>
