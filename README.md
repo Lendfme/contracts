@@ -13,6 +13,14 @@
 		<td> Liquidator </td>
 		<td> 0x9893292300c4e530a14FB2526271732a2a9b3f05 </td>
 	</tr>
+	<tr>
+		<td> HBTC </td>
+		<td> 0x0316EB71485b0Ab14103307bf65a021042c6d380 </td>
+	</tr>
+	<tr>
+		<td> HBTCRateModel </td>
+		<td> 0x5Dc95A046020880b93F15902540Dbfe86489FddA </td>
+	</tr>
     <tr>
 		<td> imBTC </td>
 		<td> 0x3212b29E33587A00FB1C83346f5dBFA69A458923 </td>
@@ -235,4 +243,3 @@
 		<td> 0x09593E1944015806954992aa52dc8Bc0786e3821 </td>
 	</tr>
 </table>
-
