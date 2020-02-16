@@ -1,34 +1,9 @@
 pragma solidity ^0.4.24;
 
 import "../../../contracts/Exponential.sol";
-import "../../../contracts/InterestRateModel.sol";
-import "../../../contracts/LiquidationChecker.sol";
 
-
-contract MoneyMarket {
-    function markets(address asset) public view returns (bool, uint, InterestRateModel, uint, uint, uint, uint, uint, uint);
-    function oracle() public view returns (address);
-}
-
-contract PriceOracleProxy {
-    address public mostRecentCaller;
-    uint public mostRecentBlock;
-
-    /**
-     * @notice Gets the price of a given asset
-     * @dev fetches the price of a given asset
-     * @param asset Asset to get the price of
-     * @return the price scaled by 10**18, or zero if the price is not available
-     */
-    function assetPrices(address asset) public returns (uint);
-}
-
-contract testRateModel is Exponential, LiquidationChecker {
-
-    uint constant oneMinusSpreadBasisPoints = 9800;
+contract testRateModel is Exponential {
     uint constant blocksPerYear = 2102400;
-
-    address public owner;
 
     enum IRError {
         NO_ERROR,
@@ -37,31 +12,7 @@ contract testRateModel is Exponential, LiquidationChecker {
         FAILED_TO_MUL_PRODUCT_TIMES_BORROW_RATE
     }
 
-
-    constructor(address moneyMarket, address liquidator) LiquidationChecker(moneyMarket, liquidator) {
-        owner = msg.sender;
-    }
-
-    function getUtilizationRate(uint cash, uint borrows) pure internal returns (IRError, Exp memory) {
-        if (borrows == 0) {
-            // Utilization rate is zero when there's no borrows
-            return (IRError.NO_ERROR, Exp({mantissa: 0}));
-        }
-
-        (Error err0, uint cashPlusBorrows) = add(cash, borrows);
-        if (err0 != Error.NO_ERROR) {
-            return (IRError.FAILED_TO_ADD_CASH_PLUS_BORROWS, Exp({mantissa: 0}));
-        }
-
-        (Error err1, Exp memory utilizationRate) = getExp(borrows, cashPlusBorrows);
-        if (err1 != Error.NO_ERROR) {
-            return (IRError.FAILED_TO_GET_EXP, Exp({mantissa: 0}));
-        }
-
-        return (IRError.NO_ERROR, utilizationRate);
-    }
-
-    function powDecimal(uint utilizationRate, uint power) pure internal returns (Error, uint){
+    function powDecimal(uint utilizationRate, uint power) pure internal returns (Error, uint) {
 
         uint result = utilizationRate;
         Error err0;
@@ -109,66 +60,48 @@ contract testRateModel is Exponential, LiquidationChecker {
         // }
         Exp memory utilizationRate = Exp({mantissa: ur});
 
-        // Borrow Rate is 0.06*UR^1 + 0.05*UR^4 + 0.03*UR^8 + 0.12*UR^32
+        if (utilizationRate.mantissa >= 75e16 && utilizationRate.mantissa <= 85e16)
+            return (IRError.NO_ERROR, utilizationRate, Exp({mantissa: 63835754242258350}));
+
+        /**
+         *  Borrow Rate
+         *  0 < UR < 75% :      0.06 * UR + 0.05 * UR^4 + 0.03 * UR^8 + 0.12 * UR^32
+         *  75% <= UR <= 85% :  0.06 * 0.75 + 0.05 * 0.75^4 + 0.03 * 0.75^8 + 0.12 * 0.75^32
+         *  85% < UR :          0.06 * UR + 0.05 * UR^12 + 0.03 * UR^8 + 0.12 * UR^32
+         */
         Error err;
-        // Exp({mantissa: utilizationRate.mantissa})
-        Exp memory annualBorrowRateMuled;
-        (err, annualBorrowRateMuled) = mulScalar(Exp({mantissa: utilizationRate.mantissa}), 6);
-        assert(err == Error.NO_ERROR);
-        Exp memory annualBorrowRateScaled;
-        (err, annualBorrowRateScaled) = divScalar(annualBorrowRateMuled, 100);
-        // 100 is a constant, and therefore cannot be zero, which is the only error case of divScalar.
+        uint annualBorrowRateScaled;
+        (err, annualBorrowRateScaled) = mul(utilizationRate.mantissa, 6);
         assert(err == Error.NO_ERROR);
 
-
-        Exp memory temp;
+        uint temp;
         uint base;
 
         (err, base) = powDecimal(utilizationRate.mantissa, 4);
         assert(err == Error.NO_ERROR);
 
-        (err, temp) = mulScalar(Exp({mantissa: base}), 5);
-        assert(err == Error.NO_ERROR);
-        // Exp memory annualBorrowRateScaled;
-        (err, temp) = divScalar(temp, 100);
-        // 100 is a constant, and therefore cannot be zero, which is the only error case of divScalar.
+        (err, temp) = mul(utilizationRate.mantissa > 85e16 ? base**3 / 10**36 : base, 5);
         assert(err == Error.NO_ERROR);
 
-        (err, annualBorrowRateScaled) = addExp(annualBorrowRateScaled, temp);
-        // 100 is a constant, and therefore cannot be zero, which is the only error case of divScalar.
+        (err, annualBorrowRateScaled) = add(annualBorrowRateScaled, temp);
         assert(err == Error.NO_ERROR);
 
-
-        (err, base) = powDecimal(base, 2);
+        (err, temp) = mul(base**2 / 10**18, 3);
         assert(err == Error.NO_ERROR);
 
-        (err, temp) = mulScalar(Exp({mantissa: base}), 3);
-        assert(err == Error.NO_ERROR);
-        // Exp memory annualBorrowRateScaled;
-        (err, temp) = divScalar(temp, 100);
-        // 100 is a constant, and therefore cannot be zero, which is the only error case of divScalar.
+        (err, annualBorrowRateScaled) = add(annualBorrowRateScaled, temp);
         assert(err == Error.NO_ERROR);
 
-        (err, annualBorrowRateScaled) = addExp(annualBorrowRateScaled, temp);
-        // 100 is a constant, and therefore cannot be zero, which is the only error case of divScalar.
+        (err, base) = powDecimal(base**2 / 10**18, 4);
         assert(err == Error.NO_ERROR);
 
-
-        (err, base) = powDecimal(base, 4);
+        (err, temp) = mul(base, 12);
         assert(err == Error.NO_ERROR);
 
-        (err, temp) = mulScalar(Exp({mantissa: base}), 12);
-        assert(err == Error.NO_ERROR);
-        // Exp memory annualBorrowRateScaled;
-        (err, temp) = divScalar(temp, 100);
-        // 100 is a constant, and therefore cannot be zero, which is the only error case of divScalar.
+        (err, annualBorrowRateScaled) = add(annualBorrowRateScaled, temp);
         assert(err == Error.NO_ERROR);
 
-        (err, annualBorrowRateScaled) = addExp(annualBorrowRateScaled, temp);
-        // 100 is a constant, and therefore cannot be zero, which is the only error case of divScalar.
-        assert(err == Error.NO_ERROR);
-
-        return (IRError.NO_ERROR, utilizationRate, annualBorrowRateScaled);
+        return (IRError.NO_ERROR, utilizationRate, Exp({mantissa: annualBorrowRateScaled / 100}));
     }
 
 
@@ -179,6 +112,13 @@ contract testRateModel is Exponential, LiquidationChecker {
         if (err0 != IRError.NO_ERROR) {
             return (uint(err0), 0);
         }
+
+        /**
+         *  Supply Rate
+         *  0 < UR < 75% :  0.98 * BorrowRate
+         *  75% <= UR :     0.99 * BorrowRate
+         */
+        uint oneMinusSpreadBasisPoints = utilizationRate0.mantissa >= 75e16 ? 9900 : 9800;
 
         // We're going to multiply the utilization rate by the spread's numerator
         (Error err1, Exp memory utilizationRate1) = mulScalar(utilizationRate0, oneMinusSpreadBasisPoints);
@@ -218,8 +158,6 @@ contract testRateModel is Exponential, LiquidationChecker {
         (Error err1, Exp memory borrowRate) = divScalar(annualBorrowRate, blocksPerYear); // basis points * blocks per year
         // divScalar only fails when divisor is zero. This is clearly not the case.
         assert(err1 == Error.NO_ERROR);
-
-        _utilizationRate; // pragma ignore unused variable
 
         // Note: mantissa is the rate scaled 1e18, which matches the expected result
         return (uint(IRError.NO_ERROR), borrowRate.mantissa);
