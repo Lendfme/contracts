@@ -43,7 +43,7 @@
 	</tr>
 	<tr>
 		<td> USDTRateModel </td>
-		<td> 0x83D5f6dc9d9750A137a744333C55b4Adf5F9A234 </td>
+		<td> 0x989470e826b51bE65C4A6CAb082f32e25731C4c2 </td>
 	</tr>
 	<tr>
 		<td> WETH </td>
@@ -133,7 +133,7 @@
 	</tr>
 	<tr>
 		<td> USDTRateModel </td>
-		<td> 0x5921aD8bC04aa45fc23C9771c559FFbf4D2AfD2f </td>
+		<td> 0x3faCDdD7aA6C7221BF38Dfc5cE732Dab46fDEEBa </td>
 	</tr>
 	<tr>
 		<td> WETH </td>
