@@ -216,7 +216,7 @@
 	</tr>
 	<tr>
 		<td> USDTRateModel </td>
-		<td> 0x0694A48121B7cCe8c725cB076CB29e31E9DF96bD </td>
+		<td> 0x63b920386b3b4021d36EcFaB90F3F5b74Bc8b902 </td>
 	</tr>
 	<tr>
 		<td> USDx </td>
