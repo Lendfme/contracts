@@ -158,9 +158,17 @@ contract Exponential is ErrorReporter, CarefulMath {
     }
 
     /**
+     * @dev Checks if first Exp is greater than second Exp.
+     */
+    function greaterThanExp(Exp memory left, Exp memory right) pure internal returns (bool) {
+        return left.mantissa > right.mantissa;
+    }
+
+    /**
      * @dev returns true if Exp is exactly zero
      */
     function isZeroExp(Exp memory value) pure internal returns (bool) {
         return value.mantissa == 0;
     }
 }
+
