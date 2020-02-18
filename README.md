@@ -43,7 +43,7 @@
 	</tr>
 	<tr>
 		<td> USDTRateModel </td>
-		<td> 0x989470e826b51bE65C4A6CAb082f32e25731C4c2 </td>
+		<td> 0x79BE3Be94b8D25F6628c616a99fA09094bcF3712 </td>
 	</tr>
 	<tr>
 		<td> WETH </td>
@@ -64,7 +64,7 @@
 </table>
 
 
-## Mainnet Test Contract Address(2020-02-11)
+## Mainnet Test Contract Address(2020-02-16)
 
 <table>
 	<tr>
@@ -133,7 +133,7 @@
 	</tr>
 	<tr>
 		<td> USDTRateModel </td>
-		<td> 0x3faCDdD7aA6C7221BF38Dfc5cE732Dab46fDEEBa </td>
+		<td> 0x1016B2c721A260E9908Ece0EE694F9fD10896C8D </td>
 	</tr>
 	<tr>
 		<td> WETH </td>
@@ -155,7 +155,7 @@
 
 
 
-## Rinkeby Contract Address(2020-02-06)
+## Rinkeby Contract Address(2020-02-16)
 
 <table>
 	<tr>
