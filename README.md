@@ -244,10 +244,10 @@
 	</tr>
 	<tr>
 		<td> PriceOracle </td>
-		<td> 0x48dFd33dCc114B4C3499a33C21406BB05a1A30a6 </td>
+		<td> 0x22D79Eff644aF72f183Df3ACaF9293A636aa2014 </td>
 	</tr>
 	<tr>
 		<td> PriceOracleProxy </td>
-		<td> 0x09593E1944015806954992aa52dc8Bc0786e3821 </td>
+		<td> 0x994cb3eD851e05BfeE1A5c069337eC9486829E90 </td>
 	</tr>
 </table>
