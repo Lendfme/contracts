@@ -204,7 +204,7 @@
 	</tr>
 	<tr>
 		<td> USDC </td>
-		<td> 0x84e96bb630a711d66789AcaBc237c087D8B371D3 </td>
+		<td> 0x4DBCdF9B62e891a7cec5A2568C3F4FAF9E8Abe2b </td>
 	</tr>
 	<tr>
 		<td> USDCRateModel </td>
@@ -225,6 +225,14 @@
 	<tr>
 		<td> USDxRateModel </td>
 		<td> 0xe302E676E1Add419cc87e75fb5B73DAB24Ad1534 </td>
+	</tr>
+	<tr>
+		<td> WBTC </td>
+		<td> 0x7B65B937A0f3764a7a5e29fD696C391233218E91 </td>
+	</tr>
+	<tr>
+		<td> WETHRateModel </td>
+		<td> 0x0Ecc207Eb5E1d9476543D7e32D61A75e6bf767d3 </td>
 	</tr>
 	<tr>
 		<td> WETH </td>
