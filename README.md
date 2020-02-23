@@ -35,7 +35,7 @@
 	</tr>
 	<tr>
 		<td> PAXRateModel </td>
-		<td> 0x83D5f6dc9d9750A137a744333C55b4Adf5F9A234 </td>
+		<td> 0x79BE3Be94b8D25F6628c616a99fA09094bcF3712 </td>
 	</tr>
 	<tr>
 		<td> TUSD </td>
@@ -43,7 +43,7 @@
 	</tr>
 	<tr>
 		<td> TUSDRateModel </td>
-		<td> 0x83D5f6dc9d9750A137a744333C55b4Adf5F9A234 </td>
+		<td> 0x79BE3Be94b8D25F6628c616a99fA09094bcF3712 </td>
 	</tr>
 	<tr>
 		<td> USDC </td>
@@ -51,15 +51,7 @@
 	</tr>
 	<tr>
 		<td> USDCRateModel </td>
-		<td> 0x83D5f6dc9d9750A137a744333C55b4Adf5F9A234 </td>
-	</tr>
-	<tr>
-		<td> USDx </td>
-		<td> 0xeb269732ab75A6fD61Ea60b06fE994cD32a83549 </td>
-	</tr>
-	<tr>
-		<td> USDxRateModel </td>
-		<td> 0x83D5f6dc9d9750A137a744333C55b4Adf5F9A234 </td>
+		<td> 0x79BE3Be94b8D25F6628c616a99fA09094bcF3712 </td>
 	</tr>
 	<tr>
 		<td> USDT </td>
@@ -68,6 +60,14 @@
 	<tr>
 		<td> USDTRateModel </td>
 		<td> 0x79BE3Be94b8D25F6628c616a99fA09094bcF3712 </td>
+	</tr>
+	<tr>
+		<td> USDx </td>
+		<td> 0xeb269732ab75A6fD61Ea60b06fE994cD32a83549 </td>
+	</tr>
+	<tr>
+		<td> USDxRateModel </td>
+		<td> 0x83D5f6dc9d9750A137a744333C55b4Adf5F9A234 </td>
 	</tr>
 	<tr>
 		<td> WBTC </td>
@@ -133,7 +133,7 @@
 	</tr>
 	<tr>
 		<td> PAXRateModel </td>
-		<td> 0x5921aD8bC04aa45fc23C9771c559FFbf4D2AfD2f </td>
+		<td> 0x1016B2c721A260E9908Ece0EE694F9fD10896C8D </td>
 	</tr>
 	<tr>
 		<td> TUSD </td>
@@ -141,7 +141,7 @@
 	</tr>
 	<tr>
 		<td> TUSDRateModel </td>
-		<td> 0x5921aD8bC04aa45fc23C9771c559FFbf4D2AfD2f </td>
+		<td> 0x1016B2c721A260E9908Ece0EE694F9fD10896C8D </td>
 	</tr>
 	<tr>
 		<td> USDC </td>
@@ -149,15 +149,7 @@
 	</tr>
 	<tr>
 		<td> USDCRateModel </td>
-		<td> 0x5921aD8bC04aa45fc23C9771c559FFbf4D2AfD2f </td>
-	</tr>
-	<tr>
-		<td> USDx </td>
-		<td> 0x3A9E75AFcFFcD89613037989EA0ED6cEc44a4353 </td>
-	</tr>
-	<tr>
-		<td> USDxRateModel </td>
-		<td> 0xa79B3ea1729Bf43Be12A7C89BDffd1306dBFe647 </td>
+		<td> 0x1016B2c721A260E9908Ece0EE694F9fD10896C8D </td>
 	</tr>
 	<tr>
 		<td> USDT </td>
@@ -166,6 +158,14 @@
 	<tr>
 		<td> USDTRateModel </td>
 		<td> 0x1016B2c721A260E9908Ece0EE694F9fD10896C8D </td>
+	</tr>
+	<tr>
+		<td> USDx </td>
+		<td> 0x3A9E75AFcFFcD89613037989EA0ED6cEc44a4353 </td>
+	</tr>
+	<tr>
+		<td> USDxRateModel </td>
+		<td> 0xa79B3ea1729Bf43Be12A7C89BDffd1306dBFe647 </td>
 	</tr>
 	<tr>
 		<td> WBTC </td>
@@ -232,7 +232,7 @@
 	</tr>
 	<tr>
 		<td> PAXRateModel </td>
-		<td> 0xe302E676E1Add419cc87e75fb5B73DAB24Ad1534 </td>
+		<td> 0x63b920386b3b4021d36EcFaB90F3F5b74Bc8b902 </td>
 	</tr>
 	<tr>
 		<td> TUSD </td>
@@ -240,7 +240,7 @@
 	</tr>
 	<tr>
 		<td> TUSDRateModel </td>
-		<td> 0xe302E676E1Add419cc87e75fb5B73DAB24Ad1534 </td>
+		<td> 0x63b920386b3b4021d36EcFaB90F3F5b74Bc8b902 </td>
 	</tr>
 	<tr>
 		<td> USDC </td>
@@ -248,7 +248,7 @@
 	</tr>
 	<tr>
 		<td> USDCRateModel </td>
-		<td> 0xe302E676E1Add419cc87e75fb5B73DAB24Ad1534 </td>
+		<td> 0x63b920386b3b4021d36EcFaB90F3F5b74Bc8b902 </td>
 	</tr>
 	<tr>
 		<td> USDT </td>
