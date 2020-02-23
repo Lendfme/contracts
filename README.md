@@ -1,4 +1,4 @@
-## Mainnet Contract Address(2019-12-10)
+## Mainnet Contract Address(2020-02-23)
 
 <table>
 	<tr>
@@ -30,6 +30,30 @@
 		<td> 0x9a18c4D9587344f2B15686Aa67EE7e5C4B00D549 </td>
 	</tr>
 	<tr>
+		<td> PAX </td>
+		<td> 0x8E870D67F660D95d5be530380D0eC0bd388289E1 </td>
+	</tr>
+	<tr>
+		<td> PAXRateModel </td>
+		<td> 0x83D5f6dc9d9750A137a744333C55b4Adf5F9A234 </td>
+	</tr>
+	<tr>
+		<td> TUSD </td>
+		<td> 0x0000000000085d4780B73119b644AE5ecd22b376 </td>
+	</tr>
+	<tr>
+		<td> TUSDRateModel </td>
+		<td> 0x83D5f6dc9d9750A137a744333C55b4Adf5F9A234 </td>
+	</tr>
+	<tr>
+		<td> USDC </td>
+		<td> 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48 </td>
+	</tr>
+	<tr>
+		<td> USDCRateModel </td>
+		<td> 0x83D5f6dc9d9750A137a744333C55b4Adf5F9A234 </td>
+	</tr>
+	<tr>
 		<td> USDx </td>
 		<td> 0xeb269732ab75A6fD61Ea60b06fE994cD32a83549 </td>
 	</tr>
@@ -44,6 +68,14 @@
 	<tr>
 		<td> USDTRateModel </td>
 		<td> 0x79BE3Be94b8D25F6628c616a99fA09094bcF3712 </td>
+	</tr>
+	<tr>
+		<td> WBTC </td>
+		<td> 0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599 </td>
+	</tr>
+	<tr>
+		<td> WBTCRateModel </td>
+		<td> 0x5Dc95A046020880b93F15902540Dbfe86489FddA </td>
 	</tr>
 	<tr>
 		<td> WETH </td>
@@ -64,7 +96,7 @@
 </table>
 
 
-## Mainnet Test Contract Address(2020-02-16)
+## Mainnet Test Contract Address(2020-02-23)
 
 <table>
 	<tr>
@@ -136,6 +168,14 @@
 		<td> 0x1016B2c721A260E9908Ece0EE694F9fD10896C8D </td>
 	</tr>
 	<tr>
+		<td> WBTC </td>
+		<td> 0xb699238e9Fc2724CBc7ca28AEF68b546Cd773612 </td>
+	</tr>
+	<tr>
+		<td> WBTCRateModel </td>
+		<td> 0xA4e7D12909FaD9cFc620c34cFA1b9DCC31f3BF43 </td>
+	</tr>
+	<tr>
 		<td> WETH </td>
 		<td> 0x06A1cd567e61b7Edda49c30D3D32e60F607fD646 </td>
 	</tr>
@@ -155,7 +195,7 @@
 
 
 
-## Rinkeby Contract Address(2020-02-16)
+## Rinkeby Contract Address(2020-02-23)
 
 <table>
 	<tr>
@@ -231,7 +271,7 @@
 		<td> 0x7B65B937A0f3764a7a5e29fD696C391233218E91 </td>
 	</tr>
 	<tr>
-		<td> WETHRateModel </td>
+		<td> WBTCRateModel </td>
 		<td> 0x0Ecc207Eb5E1d9476543D7e32D61A75e6bf767d3 </td>
 	</tr>
 	<tr>
