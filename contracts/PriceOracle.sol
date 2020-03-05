@@ -2,8 +2,16 @@ pragma solidity ^0.4.24;
 
 import "./Exponential";
 
+contract ExchangeRateModel {
+    function scale() external view returns (uint);
+    function getExchangeRate() external view returns (uint);
+    function getMaxSwingRate(uint interval) external view returns (uint);
+    function getFixedInterestRate(uint interval) external view returns (uint);
+    function getFixedExchangeRate(uint interval) public view returns (uint);
+}
 
 contract PriceOracle is Exponential {
+
     /**
      * @dev flag for whether or not contract is paused
      *
@@ -15,11 +23,17 @@ contract PriceOracle is Exponential {
     uint public constant maxSwingMantissa = (10 ** 17); // 0.1
 
     /**
-     * @dev Mapping of asset addresses to asset addresses. Stable coin can share a price.
+     * @dev Mapping of asset addresses to exchange rate information. Dynamic changes in asset prices based on exchange rates.
      *
-     * map: assetAddress -> assetAddress
+     * map: assetAddress -> ExchangeRateInfo
      */
-    mapping(address => address) public readers;
+    struct ExchangeRateInfo {
+        address exchangeRateModel;
+        uint exchangeRate;
+        uint maxSwingRate;
+        uint maxSwingDuration;
+    }
+    mapping(address => ExchangeRateInfo) public exchangeRates;
 
     /**
      * @dev Mapping of asset addresses and their corresponding price in terms of Eth-Wei
@@ -159,9 +173,10 @@ contract PriceOracle is Exponential {
     }
 
     /**
-     * @dev emitted for all readers changes
+     * @dev emitted for all exchangeRates changes
      */
-    event ReaderPosted(address asset, address oldReader, address newReader);
+    event SetExchangeRate(address asset, address exchangeRateModel, uint exchangeRate, uint maxSwingRate, uint maxSwingDuration);
+    event SetMaxSwingRate(address asset, uint oldMaxSwingRate, uint newMaxSwingRate, uint maxSwingDuration);
 
     /**
      * @dev emitted for all price changes
@@ -285,6 +300,80 @@ contract PriceOracle is Exponential {
     }
 
     /**
+     * @notice set new exchange rate model
+     * @dev function to set exchangeRateModel for an asset
+     * @param asset asset for which to set the exchangeRateModel
+     * @param exchangeRateModel exchangeRateModel address, if the exchangeRateModel is address(0), cancel the exchangeRates
+     * @param maxSwingDuration maxSwingDuration uint, Is a value greater than zero and less than a second of a week
+     * @return uint 0=success, otherwise a failure (see enum OracleError for details)
+     */
+    function setExchangeRate(address asset, address exchangeRateModel, uint maxSwingDuration) public returns (uint) {
+
+        // Fail when msg.sender is not poster
+        if (msg.sender != anchorAdmin) {
+            return failOracle(asset, OracleError.UNAUTHORIZED, OracleFailureInfo.SET_PRICE_PERMISSION_CHECK);
+        }
+
+        require(exchangeRateModel != address(0), "setExchangeRate: exchangeRateModel cannot be a zero address.");
+        require(
+            maxSwingDuration > 0 && maxSwingDuration <= 604800,
+            "setExchangeRate: maxSwingDuration cannot be zero, less than 31536000 (seconds per week)."
+        );
+
+        uint currentExchangeRate = ExchangeRateModel(exchangeRateModel).getExchangeRate();
+        require(currentExchangeRate > 0, "setExchangeRate: currentExchangeRate not zero.");
+
+        uint maxSwingRate = ExchangeRateModel(exchangeRateModel).getMaxSwingRate(maxSwingDuration);
+        require(
+            maxSwingRate > 0 && maxSwingRate <= ExchangeRateModel(exchangeRateModel).getMaxSwingRate(604800),
+            "setExchangeRate: maxSwingRate cannot be zero, less than 31536000 (seconds per week)."
+        );
+
+        exchangeRates[asset].exchangeRateModel = exchangeRateModel;
+        exchangeRates[asset].exchangeRate = currentExchangeRate;
+        exchangeRates[asset].maxSwingRate = maxSwingRate;
+        exchangeRates[asset].maxSwingDuration = maxSwingDuration;
+
+        emit SetExchangeRate(asset, exchangeRateModel, currentExchangeRate, maxSwingRate, maxSwingDuration);
+        return uint(OracleError.NO_ERROR);
+    }
+
+    /**
+     * @notice set new exchange rate maxSwingRate
+     * @dev function to set exchange rate maxSwingRate for an asset
+     * @param asset asset for which to set the exchange rate maxSwingRate
+     * @param maxSwingDuration Interval time
+     * @return uint 0=success, otherwise a failure (see enum OracleError for details)
+     */
+    function setMaxSwingRate(address asset, uint maxSwingDuration) public returns (uint) {
+
+        // Fail when msg.sender is not poster
+        if (msg.sender != anchorAdmin) {
+            return failOracle(asset, OracleError.UNAUTHORIZED, OracleFailureInfo.SET_PRICE_PERMISSION_CHECK);
+        }
+
+        require(
+            maxSwingDuration > 0 && maxSwingDuration <= 604800,
+            "setMaxSwingRate: maxSwingDuration cannot be zero, less than 31536000 (seconds per week)."
+        );
+
+        ExchangeRateModel exchangeRateModel = ExchangeRateModel(exchangeRates[asset].exchangeRateModel);
+        uint newMaxSwingRate = exchangeRateModel.getMaxSwingRate(maxSwingDuration);
+        uint oldMaxSwingRate = exchangeRates[asset].maxSwingRate;
+        require(oldMaxSwingRate != newMaxSwingRate, "setMaxSwingRate: Old and new values cannot be the same.");
+        require(
+            newMaxSwingRate > 0 && newMaxSwingRate <= exchangeRateModel.getMaxSwingRate(604800),
+            "setMaxSwingRate: maxSwingRate cannot be zero, less than 31536000 (seconds per week)."
+        );
+
+        exchangeRates[asset].maxSwingRate = newMaxSwingRate;
+        exchangeRates[asset].maxSwingDuration = maxSwingDuration;
+
+        emit SetMaxSwingRate(asset, oldMaxSwingRate, newMaxSwingRate, maxSwingDuration);
+        return uint(OracleError.NO_ERROR);
+    }
+
+    /**
      * @notice retrieves price of an asset
      * @dev function to get price for an asset
      * @param asset Asset for which to get the price
@@ -298,14 +387,33 @@ contract PriceOracle is Exponential {
         // We get the price as:
         //
         //  1. If the contract is paused, return 0.
-        //  2. If the asset is a reader asset, return price in `_assetPrices[readers[asset]]`, which may be zero.
+        //  2. If the asset has an exchange rate model, the asset price is calculated based on the exchange rate.
         //  3. Return price in `_assetPrices`, which may be zero.
 
         if (paused) {
             return 0;
         } else {
-            if (readers[asset] != address(0)) {
-                return _assetPrices[readers[asset]].mantissa;
+            ExchangeRateInfo memory exchangeRateInfo = exchangeRates[asset];
+            if (exchangeRateInfo.exchangeRateModel != address(0)) {
+                uint scale = ExchangeRateModel(exchangeRateInfo.exchangeRateModel).scale();
+                uint currentExchangeRate = ExchangeRateModel(exchangeRateInfo.exchangeRateModel).getExchangeRate();
+                uint currentChangeRate;
+                Error err;
+                (err, currentChangeRate) = mul(currentExchangeRate, scale);
+                if (err != Error.NO_ERROR)
+                    return 0;
+
+                currentChangeRate = currentChangeRate / exchangeRateInfo.exchangeRate;
+                // require(currentExchangeRate >= exchangeRateInfo.exchangeRate && currentChangeRate <= exchangeRateInfo.maxSwingRate, "assetPrices: Abnormal exchange rate.");
+                if (currentExchangeRate < exchangeRateInfo.exchangeRate || currentChangeRate > exchangeRateInfo.maxSwingRate)
+                    return 0;
+
+                uint price;
+                (err, price) = mul(_assetPrices[asset].mantissa, currentExchangeRate);
+                if (err != Error.NO_ERROR)
+                    return 0;
+
+                return price / scale;
             } else {
                 return _assetPrices[asset].mantissa;
             }
@@ -320,28 +428,6 @@ contract PriceOracle is Exponential {
      */
     function getPrice(address asset) public view returns (uint) {
         return assetPrices(asset);
-    }
-
-    /**
-     * @notice entry point for updating prices
-     * @dev function to set reader for an asset
-     * @param asset Asset for which to set the reader
-     * @param newReader Reader address, if the reader is address(0), cancel the reader
-     * @return uint 0=success, otherwise a failure (see enum OracleError for details)
-     */
-    function setReaders(address asset, address newReader) public returns (uint) {
-        assert(readers[asset] != newReader);
-        // Fail when msg.sender is not poster
-        if (msg.sender != poster) {
-            return failOracle(asset, OracleError.UNAUTHORIZED, OracleFailureInfo.SET_PRICE_PERMISSION_CHECK);
-        }
-
-        address oldReader = readers[asset];
-
-        readers[asset] = newReader;
-
-        emit ReaderPosted(asset, oldReader, newReader);
-        return uint(OracleError.NO_ERROR);
     }
 
     struct SetPriceLocalVars {
@@ -381,8 +467,17 @@ contract PriceOracle is Exponential {
         localVars.pendingAnchorMantissa = pendingAnchors[asset];
         localVars.price = Exp({mantissa : requestedPriceMantissa});
 
-        if (readers[asset] != address(0)) {
-            return failOracle(asset, OracleError.FAILED_TO_SET_PRICE, OracleFailureInfo.SET_PRICE_IS_READER_ASSET);
+        if (exchangeRates[asset].exchangeRateModel != address(0)) {
+
+            uint currentExchangeRate = ExchangeRateModel(exchangeRates[asset].exchangeRateModel).getExchangeRate();
+            uint scale = ExchangeRateModel(exchangeRates[asset].exchangeRateModel).scale();
+            uint currentChangeRate;
+            (err, currentChangeRate) = mul(currentExchangeRate, scale);
+            assert(err == Error.NO_ERROR);
+
+            currentChangeRate = currentChangeRate / exchangeRates[asset].exchangeRate;
+            require(currentExchangeRate >= exchangeRates[asset].exchangeRate && currentChangeRate <= exchangeRates[asset].maxSwingRate, "setPriceInternal: Abnormal exchange rate.");
+            exchangeRates[asset].exchangeRate = currentExchangeRate;
         }
 
         if (localVars.pendingAnchorMantissa != 0) {
