@@ -112,6 +112,14 @@
 		<td> 0xa116F88A1FF715206923f909585FEa35F52d540a </td>
 	</tr>
 	<tr>
+		<td> DSRToken </td>
+		<td> 0xfab8E55ae02826BF6e849E8eaE78c5b8FA4182F3 </td>
+	</tr>
+	<tr>
+		<td> DSRTokenRateModel </td>
+		<td> 0x1016B2c721A260E9908Ece0EE694F9fD10896C8D </td>
+	</tr>
+	<tr>
 		<td> HBTC </td>
 		<td> 0xa2C7088b08833a00dB49A0d564b5e1463A4B49cB </td>
 	</tr>
@@ -185,11 +193,19 @@
 	</tr>
 	<tr>
 		<td> PriceOracle </td>
-		<td> 0x5b4e06e712c851454b071a755B61fc0a86A8680E </td>
+		<td> 0x54934a16e77445F45A37C52B70a43c3b4D011aD4 </td>
 	</tr>
 	<tr>
 		<td> PriceOracleProxy </td>
-		<td> 0x55d19f7F257544ef2E5c5f9B6d31a2416f8d5146 </td>
+		<td> 0x0388617179F1fabcBCf975507Ab424D8179cfF75 </td>
+	</tr>
+	<tr>
+		<td> DAI </td>
+		<td> 0x4Eab78e4C2acf2Ed41d56ce71b51c9D717782124 </td>
+	</tr>
+	<tr>
+        <td> ExchangeRate </td>
+        <td> 0xBe87C16290e554229E2364DeB46b78a4BFcae74a </td>
 	</tr>
 </table>
 
@@ -209,6 +225,14 @@
 	<tr>
 		<td> Liquidator </td>
 		<td> 0x84E81B87D1736D2E2Be5dB591326E29F8458c63C </td>
+	</tr>
+	<tr>
+		<td> DSRToken </td>
+		<td> 0x8a5C1BD4D75e168a4f65eB902c289400B90FD980 </td>
+	</tr>
+	<tr>
+		<td> DSRTokenRateModel </td>
+		<td> 0x63b920386b3b4021d36EcFaB90F3F5b74Bc8b902 </td>
 	</tr>
 	<tr>
 		<td> HBTC </td>
@@ -284,10 +308,18 @@
 	</tr>
 	<tr>
 		<td> PriceOracle </td>
-		<td> 0x22D79Eff644aF72f183Df3ACaF9293A636aa2014 </td>
+		<td> 0xd75AF5Bc8e1f022002c47508C27455A20738b1F5 </td>
 	</tr>
 	<tr>
 		<td> PriceOracleProxy </td>
-		<td> 0x994cb3eD851e05BfeE1A5c069337eC9486829E90 </td>
+		<td> 0x1ca246F23cb90c75B879fd58Cc02C64B52B01e99 </td>
+	</tr>
+	<tr>
+		<td> DAI </td>
+		<td> 0xA3A59273494BB5B8F0a8FAcf21B3f666A47d6140 </td>
+	</tr>
+	<tr>
+        <td> ExchangeRate </td>
+        <td> 0x0226953975D4948b417571Fb73A02358d25aFF1A </td>
 	</tr>
 </table>

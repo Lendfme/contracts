@@ -4,6 +4,7 @@ import "./Exponential";
 
 contract ExchangeRateModel {
     function scale() external view returns (uint);
+    function token() external view returns (address);
     function getExchangeRate() external view returns (uint);
     function getMaxSwingRate(uint interval) external view returns (uint);
     function getFixedInterestRate(uint interval) external view returns (uint);
@@ -428,6 +429,23 @@ contract PriceOracle is Exponential {
      */
     function getPrice(address asset) public view returns (uint) {
         return assetPrices(asset);
+    }
+
+    /**
+     * @notice retrieves exchange rate info of an asset
+     * @dev function to get exchange rate info for an asset
+     * @param asset Asset for which to get the exchange rate info
+     * @return exchange rate info
+     */
+    function getExchangeRateInfo(address asset, uint interval) public view returns (uint, address, address, uint, uint, uint) {
+        return (
+            _assetPrices[asset].mantissa,
+            exchangeRates[asset].exchangeRateModel,
+            ExchangeRateModel(exchangeRates[asset].exchangeRateModel).token(),
+            ExchangeRateModel(exchangeRates[asset].exchangeRateModel).scale(),
+            ExchangeRateModel(exchangeRates[asset].exchangeRateModel).getExchangeRate(),
+            ExchangeRateModel(exchangeRates[asset].exchangeRateModel).getFixedInterestRate(interval)
+        );
     }
 
     struct SetPriceLocalVars {

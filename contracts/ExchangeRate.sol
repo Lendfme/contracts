@@ -1,4 +1,4 @@
-pragma solidity ^0.5.12;
+pragma solidity =0.5.12;
 
 contract PotLike {
     function chi() external view returns (uint256);
@@ -12,6 +12,8 @@ contract ExchangeRateModel {
     address public newOwner;
     PotLike public pot;
 
+    address public token;
+
     uint constant public scale = 10 ** 27;
 
     event OwnerUpdate(address indexed owner, address indexed newOwner);
@@ -22,9 +24,10 @@ contract ExchangeRateModel {
         _;
     }
 
-    constructor(address _pot) public {
+    constructor(address _pot, address _token) public {
         owner = msg.sender;
         pot = PotLike(_pot);
+        token = _token;
     }
 
     function transferOwnership(address newOwner_) external onlyOwner {
