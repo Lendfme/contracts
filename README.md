@@ -1,4 +1,4 @@
-## Mainnet Contract Address(2020-02-23)
+## Mainnet Contract Address(2020-03-14)
 
 <table>
 	<tr>
@@ -12,6 +12,14 @@
 	<tr>
 		<td> Liquidator </td>
 		<td> 0x9893292300c4e530a14FB2526271732a2a9b3f05 </td>
+	</tr>
+	<tr>
+		<td> DSRToken </td>
+		<td> 0x06AF07097C9Eeb7fD685c692751D5C66dB49c215 </td>
+	</tr>
+	<tr>
+		<td> DSRTokenRateModel </td>
+		<td> 0x79BE3Be94b8D25F6628c616a99fA09094bcF3712 </td>
 	</tr>
 	<tr>
 		<td> HBTC </td>
@@ -87,16 +95,24 @@
 	</tr>
 	<tr>
 		<td> PriceOracle </td>
-		<td> 0xE8a616FD9D7e82cfCaEf3f8a90c6A7EEA97E0856 </td>
+		<td> 0xE171D8c7e9EE0DDAe1A9bec0c7f35294e48c28d4 </td>
 	</tr>
 	<tr>
 		<td> PriceOracleProxy </td>
-		<td> 0x21F2a370d02996BC914e1B92160D47D279d9F15a </td>
+		<td> 0xB620707637C5b2cc49843A03d90E28D9abbDa149 </td>
+	</tr>
+	<tr>
+		<td> DAI </td>
+		<td> 0x6B175474E89094C44Da98b954EedeAC495271d0F </td>
+	</tr>
+	<tr>
+        <td> ExchangeRate </td>
+        <td> 0x3eE954244629c9Bc6e53A50baCCC9A7B472f7D42 </td>
 	</tr>
 </table>
 
 
-## Mainnet Test Contract Address(2020-02-23)
+## Mainnet Test Contract Address(2020-03-14)
 
 <table>
 	<tr>
@@ -211,7 +227,7 @@
 
 
 
-## Rinkeby Contract Address(2020-02-23)
+## Rinkeby Contract Address(2020-03-14)
 
 <table>
 	<tr>
