@@ -29,6 +29,14 @@
 		<td> HBTCRateModel </td>
 		<td> 0x5Dc95A046020880b93F15902540Dbfe86489FddA </td>
 	</tr>
+	<tr>
+		<td> HUSD </td>
+		<td> 0xdF574c24545E5FfEcb9a659c229253D4111d87e1 </td>
+	</tr>
+	<tr>
+		<td> HUSDRateModel </td>
+		<td> 0x79BE3Be94b8D25F6628c616a99fA09094bcF3712 </td>
+	</tr>
     <tr>
 		<td> imBTC </td>
 		<td> 0x3212b29E33587A00FB1C83346f5dBFA69A458923 </td>
@@ -142,6 +150,14 @@
 	<tr>
 		<td> HBTCRateModel </td>
 		<td> 0xA4e7D12909FaD9cFc620c34cFA1b9DCC31f3BF43 </td>
+	</tr>
+	<tr>
+		<td> HUSD </td>
+		<td> 0x91Ca723288ecd5772e263e25F52D4014C493f5D0 </td>
+	</tr>
+	<tr>
+		<td> HUSDRateModel </td>
+		<td> 0x1016B2c721A260E9908Ece0EE694F9fD10896C8D </td>
 	</tr>
     <tr>
 		<td> imBTC </td>
@@ -257,6 +273,14 @@
 	<tr>
 		<td> HBTCRateModel </td>
 		<td> 0x0Ecc207Eb5E1d9476543D7e32D61A75e6bf767d3 </td>
+	</tr>
+	<tr>
+		<td> HUSD </td>
+		<td> 0x0D518472330FF1D943881BBBDda03b221A7F9F74 </td>
+	</tr>
+	<tr>
+		<td> HUSDRateModel </td>
+		<td> 0x63b920386b3b4021d36EcFaB90F3F5b74Bc8b902 </td>
 	</tr>
 	<tr>
 		<td> imBTC </td>
