@@ -14,6 +14,14 @@
 		<td> 0x9893292300c4e530a14FB2526271732a2a9b3f05 </td>
 	</tr>
 	<tr>
+		<td> BUSD </td>
+		<td> 0x4Fabb145d64652a948d72533023f6E7A623C7C53 </td>
+	</tr>
+	<tr>
+		<td> BUSDRateModel </td>
+		<td> 0x79BE3Be94b8D25F6628c616a99fA09094bcF3712 </td>
+	</tr>
+	<tr>
 		<td> DSRToken </td>
 		<td> 0x06AF07097C9Eeb7fD685c692751D5C66dB49c215 </td>
 	</tr>
@@ -134,6 +142,14 @@
 	<tr>
 		<td> Liquidator </td>
 		<td> 0xa116F88A1FF715206923f909585FEa35F52d540a </td>
+	</tr>
+	<tr>
+		<td> BUSD </td>
+		<td> 0x848284e85eE54Ed1CFf4B77B564A2Edb1eF8FE5B </td>
+	</tr>
+	<tr>
+		<td> BUSDRateModel </td>
+		<td> 0x1016B2c721A260E9908Ece0EE694F9fD10896C8D </td>
 	</tr>
 	<tr>
 		<td> DSRToken </td>
@@ -257,6 +273,14 @@
 	<tr>
 		<td> Liquidator </td>
 		<td> 0x84E81B87D1736D2E2Be5dB591326E29F8458c63C </td>
+	</tr>
+	<tr>
+		<td> BUSD </td>
+		<td> 0xBB4EeFbE28440D27D18e4269962bE2506366c476  </td>
+	</tr>
+	<tr>
+		<td> BUSDRateModel </td>
+		<td> 0x63b920386b3b4021d36EcFaB90F3F5b74Bc8b902 </td>
 	</tr>
 	<tr>
 		<td> DSRToken </td>
